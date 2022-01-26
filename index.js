@@ -1,3 +1,6 @@
+// HTML Generator 
+const getEmployees = require("./src/getEmployees")
+
 // Employees classes
 
 const Employee = require('./classes/Employee');
