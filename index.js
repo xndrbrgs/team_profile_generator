@@ -50,7 +50,7 @@ newEmployee = async () => {
   }
 
   if (answers.role === "Intern") {
-    const intern = new Engineer(
+    const intern = new Intern(
       answers.name,
       answers.id,
       answers.email,
@@ -61,8 +61,8 @@ newEmployee = async () => {
     console.log(intern);
   }
 
-  if (answers.addAnotherEmployee === "y") {
-    return newEmployee(entireTeam);
+  if (answers.addAnotherEmployee === true) {
+    return newEmployee();
   } else {
     return entireTeam;
   }
