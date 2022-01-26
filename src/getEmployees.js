@@ -73,4 +73,33 @@ const getIntern = (intern) => {
     `;
 }
 
+// Function to join all cards together in one HTML file 
+
+makeTeamProfile = (employeeCards) => {
+  return `
+  <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
+    <link rel="stylesheet" href="./style.css">
+    <title>My Team</title>
+</head>
+<body>
+    <header class="my-team">
+        <h1>My Team Profile</h1>
+    </header>
+
+    <section class="columns is-multiline">
+      <!-- Cards go here  -->
+      ${employeeCards}
+    </section>
+    <script src="https://kit.fontawesome.com/2d2ec9e6b7.js" crossorigin="anonymous"></script>
+</body>
+</html>
+  `;
+}
+
 module.exports = getEmployees;
