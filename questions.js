@@ -22,49 +22,45 @@ module.exports = {
     },
   ],
 
-  engineerQuestions: [
+  newEmployeeQuestions: [
+    {
+      type: "list",
+      name: "role",
+      message: "Select the new employee's role!",
+      choices: ["Engineer", "Intern"],
+    },
     {
       type: "input",
       name: "name",
-      message: "What is the engineer's name?",
+      message: "What is the employee's name?",
     },
     {
       type: "input",
       name: "id",
-      message: "What is the engineer's ID?",
+      message: "What is the employee's ID?",
     },
     {
       type: "input",
       name: "email",
-      message: "What is the engineer's email?",
+      message: "What is the employee's email?",
     },
     {
       type: "input",
       name: "github",
-      message: "What is the engineer's github username?",
-    },
-  ],
-
-  internQuestions: [
-    {
-      type: "input",
-      name: "name",
-      message: "What is the intern's name?",
-    },
-    {
-      type: "input",
-      name: "id",
-      message: "What is the intern's ID?",
-    },
-    {
-      type: "input",
-      name: "email",
-      message: "What is the intern's email?",
+      message: "What is the employee's github username?",
+      when: (input) => input.role === "Engineer",
     },
     {
       type: "input",
       name: "school",
-      message: "What is the intern's school?",
+      message: "What is the employee's school?",
+      when: (input) => input.role === "Intern",
+    },
+    {
+      type: "confirm",
+      name: "addAnotherEmployee",
+      message: "Any other employees?",
+      default: false,
     },
   ],
 };

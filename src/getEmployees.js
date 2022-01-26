@@ -23,6 +23,7 @@ const getManager = (manager) => {
     `;
 }
 
+// Engineer creator function
 const getEngineer = (engineer) => {
     return `
     <div class="column is-one-third">
@@ -47,6 +48,7 @@ const getEngineer = (engineer) => {
     `;
 }
 
+// Intern creator function
 const getIntern = (intern) => {
     return `
     <div class="column is-one-third">
