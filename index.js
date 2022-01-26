@@ -14,7 +14,7 @@ const path = require('path');
 // Qeustions Constants
 
 const {managerQuestions, engineerQuestions, internQuestions} = require('./questions');
-const entireTeam = [];
+// const entireTeam = [];
 
 
 menu = () => {
