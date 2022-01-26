@@ -83,4 +83,5 @@ newEmployee = async () => {
 
 // Initiator Function
 
-createManager().then(newEmployee).then(console.log(entireTeam));
+createManager()
+.then(newEmployee);
