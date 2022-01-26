@@ -14,7 +14,7 @@ const path = require('path');
 // Qeustions Constants
 
 const {managerQuestions, engineerQuestions, internQuestions} = require('./questions');
-// const entireTeam = [];
+const entireTeam = [];
 
 
 menu = () => {
@@ -22,7 +22,7 @@ menu = () => {
         const answers = await inquirer.prompt(managerQuestions);
         console.log(answers);
         const manager = new Manager(answers.name, answers.id, answers.email, answers.officeNumber);
-        // entireTeam.push(manager);
+        entireTeam.push(manager);
         console.log(manager);
     };
     createManager()
