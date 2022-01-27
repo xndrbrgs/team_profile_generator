@@ -21,7 +21,6 @@ const entireTeam = [];
 
 createManager = async () => {
   const answers = await inquirer.prompt(managerQuestions);
-  console.log(answers);
   const manager = new Manager(
     answers.name,
     answers.id,
@@ -29,13 +28,16 @@ createManager = async () => {
     answers.officeNumber
   );
   entireTeam.push(manager);
-  console.log(manager);
 };
 
 // Creates the incoming employee 
 
 newEmployee = async () => {
-  console.log("Time to select employees!");
+  console.log(`
+
+  Time to select employees!
+
+  `);
   const answers = await inquirer.prompt(newEmployeeQuestions);
   if (answers.role === "Engineer") {
     const engineer = new Engineer(
@@ -46,7 +48,6 @@ newEmployee = async () => {
     );
 
     entireTeam.push(engineer);
-    console.log(engineer);
   }
 
   if (answers.role === "Intern") {
@@ -58,7 +59,6 @@ newEmployee = async () => {
     );
 
     entireTeam.push(intern);
-    console.log(intern);
   }
 
 // Makes sure that the function can verify if more employees are being added 
@@ -77,7 +77,11 @@ const createHTML = data => {
             console.log(err);
             return;
         } else {
-            console.log("Your team profile has been created succesfully.");
+            console.log(`
+            
+            Your team profile has been created succesfully. Check the dist folder and run the HTML in browser.
+            
+            `);
         }
     });
 }
