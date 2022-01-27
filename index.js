@@ -11,9 +11,8 @@ const Intern = require("./classes/Intern");
 
 const fs = require("fs");
 const inquirer = require("inquirer");
-const path = require("path");
 
-// Qeustions Constants
+// Questions Constants
 
 const { managerQuestions, newEmployeeQuestions } = require("./questions");
 const entireTeam = [];
@@ -32,6 +31,8 @@ createManager = async () => {
   entireTeam.push(manager);
   console.log(manager);
 };
+
+// Creates the incoming employee 
 
 newEmployee = async () => {
   console.log("Time to select employees!");
@@ -60,6 +61,7 @@ newEmployee = async () => {
     console.log(intern);
   }
 
+// Makes sure that the function can verify if more employees are being added 
   if (answers.addAnotherEmployee === true) {
     return newEmployee();
   } else {
@@ -80,7 +82,7 @@ const createHTML = data => {
     });
 }
 
-// Initiator Function
+// Initiator function
 
 createManager()
 .then(newEmployee)
