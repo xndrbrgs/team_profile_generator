@@ -6,15 +6,19 @@
 
   ## Table of Contents
   - [Description](#description)
+  - [Usage](#usage)
   - [Installation](#installation)
-  - [Licensing](#license)
-  - [Contributing](#contribute)
-  - [Testing](#tests)
+  - [Licensing](#licensing)
+  - [Contributing](#contributing)
+  - [Testing](#testing)
   - [Contact](#contact)
+
+  ## Usage
+  This [video](https://watch.screencastify.com/v/HtJLfpU0qVbqLSSuB16x) explains the process on how to run the application.
 
   ## Installation
   To install this project, clone the repository and install an instance of Inquirer and Jest onto Node. Run index.js and follow the given prompt, which will generate the new team with the given values. 
-
+  
   ## Licensing
   Distributed under MIT licensing. 
 
