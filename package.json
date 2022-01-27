@@ -21,7 +21,9 @@
   "homepage": "https://github.com/xndrbrgs/team_profile_generator#readme",
   "dependencies": {
     "inquirer": "^8.2.0",
-    "jest": "^27.4.7",
     "path": "^0.12.7"
+  },
+  "devDependencies": {
+    "jest": "^27.4.7"
   }
 }
