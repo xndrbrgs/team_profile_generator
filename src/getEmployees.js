@@ -1,13 +1,13 @@
 // Manager creator function
 const getManager = (manager) => {
-    return `
+  return `
     <div class="column is-one-third">
             <div class="card" id="card">
                 <header class="card-header">
                   <h3 class="card-header-title">
                     ${manager.name}
-                    Manager <i class="fas fa-bullhorn" id="bullhorn"></i>
-                  </h3>
+                    </h3>
+                    <h4 class = "card-header-title">Manager <i class="fas fa-bullhorn" id="bullhorn"></i></h4>
                 </header>
                 <div class="card-content">
                   <div class="content">
@@ -21,18 +21,18 @@ const getManager = (manager) => {
               </div>
         </div>
     `;
-}
+};
 
 // Engineer creator function
 const getEngineer = (engineer) => {
-    return `
+  return `
     <div class="column is-one-third">
             <div class="card" id="card">
                 <header class="card-header">
                   <h3 class="card-header-title">
                   ${engineer.name}
-                    Engineer <i class="fas fa-glasses" id="glasses"></i></i>
                   </h3>
+                    <h4 class = "card-header-title">Engineer <i class="fas fa-glasses" id="glasses"></i></i></h4>
                 </header>
                 <div class="card-content">
                   <div class="content">
@@ -46,18 +46,18 @@ const getEngineer = (engineer) => {
               </div>
         </div>
     `;
-}
+};
 
 // Intern creator function
 const getIntern = (intern) => {
-    return `
+  return `
     <div class="column is-one-third">
             <div class="card" id="card">
                 <header class="card-header">
                   <h3 class="card-header-title">
                   ${intern.name}
-                    Intern <i class="fas fa-university" id="university"></i></i></i>
                   </h3>
+                    <h4 class = "card-header-title">Intern <i class="fas fa-university" id="university"></i></i></i></h4>
                 </header>
                 <div class="card-content">
                   <div class="content">
@@ -71,11 +71,41 @@ const getIntern = (intern) => {
               </div>
         </div>
     `;
-}
+};
 
-// Function to join all cards together in one HTML file 
+// Function to combine cards with Node answers
 
-makeTeamProfile = (employeeCards) => {
+employeeCards = (data) => {
+  cardsArray = [];
+
+  for (let i = 0; i < data.length; i++) {
+    const person = data[i];
+    const personRole = person.getRole();
+
+    if (personRole === "Manager") {
+      const manCard = getManager(person);
+      cardsArray.push(manCard);
+    }
+
+    if (personRole === "Engineer") {
+      const engCard = getEngineer(person);
+      cardsArray.push(engCard);
+    }
+
+    if (personRole === "Intern") {
+      const intCard = getIntern(person);
+      cardsArray.push(intCard);
+    }
+  }
+
+  const combinedCards = cardsArray.join("");
+  const newTeam = makeTeamProfile(combinedCards);
+  return newTeam;
+};
+
+// Function to join all cards together in one HTML file
+
+makeTeamProfile = (combinedCards) => {
   return `
   <!DOCTYPE html>
 <html lang="en">
@@ -94,12 +124,12 @@ makeTeamProfile = (employeeCards) => {
 
     <section class="columns is-multiline">
       <!-- Cards go here  -->
-      ${employeeCards}
+      ${combinedCards}
     </section>
     <script src="https://kit.fontawesome.com/2d2ec9e6b7.js" crossorigin="anonymous"></script>
 </body>
 </html>
   `;
-}
+};
 
-module.exports = getEmployees;
+module.exports = employeeCards;

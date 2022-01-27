@@ -1,9 +1,8 @@
 // HTML Generator
-// const getEmployees = require("./src/getEmployees");
+const getEmployees = require("./src/getEmployees");
 
 // Employees classes
 
-const Employee = require("./classes/Employee");
 const Manager = require("./classes/Manager");
 const Engineer = require("./classes/Engineer");
 const Intern = require("./classes/Intern");
@@ -70,18 +69,25 @@ newEmployee = async () => {
 
 // Function to create HTML
 
-// const createHTML = data => {
-//     fs.writeFile("./dist/index.html", data, err => {
-//         if (err) {
-//             console.log(err);
-//             return;
-//         } else {
-//             console.log("Your team profile has been created succesfully.");
-//         }
-//     });
-// }
+const createHTML = data => {
+    fs.writeFile("./dist/index.html", data, err => {
+        if (err) {
+            console.log(err);
+            return;
+        } else {
+            console.log("Your team profile has been created succesfully.");
+        }
+    });
+}
 
 // Initiator Function
 
 createManager()
-.then(newEmployee);
+.then(newEmployee)
+.then(entireTeam => {
+    return employeeCards(entireTeam);
+})
+.then(finishedHTML => {
+    return createHTML(finishedHTML);
+})
+
